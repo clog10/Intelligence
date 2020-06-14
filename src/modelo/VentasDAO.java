@@ -6,23 +6,25 @@ import java.sql.ResultSet;
 
 public class VentasDAO {
 
-    Conexion cn = new Conexion();
-    Connection con;
-    PreparedStatement ps;
-    ResultSet rs;
+    Conexion con;
     int r=0;
+
+    public VentasDAO() {
+        con = new Conexion();
+    }
     
     public String NroSerieVentas(){
         String serie="";
         String sql="select max(NumeroSerie) from ventas";
         try {
-            con=cn.Conectar();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
+            //con=cn.Conectar();
+            PreparedStatement ps =con.getConnection().prepareStatement(sql);
+            ResultSet rs =ps.executeQuery();
             while (rs.next()) {
                 serie=rs.getString(1);
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
         return serie;
     }
@@ -31,21 +33,22 @@ public class VentasDAO {
         String idv="";
         String sql="select max(IdVentas) from ventas";
         try {
-            con=cn.Conectar();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
+            //con=cn.Conectar();
+            PreparedStatement ps =con.getConnection().prepareStatement(sql);
+            ResultSet rs =ps.executeQuery();
             while (rs.next()) {
                 idv=rs.getString(1);
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
         return idv;
     }
     public int GuardarVentas(Ventas v){       
         String sql="insert into Ventas(IdCliente, IdVendedor,NumeroSerie,FechaVentas,Monto,Estado)values(?,?,?,?,?,?)";
         try {
-            con=cn.Conectar();
-            ps=con.prepareStatement(sql);
+            //con=cn.Conectar();
+            PreparedStatement ps =con.getConnection().prepareStatement(sql);
             ps.setInt(1, v.getIdCliente());
             ps.setInt(2, v.getIdVendedor());
             ps.setString(3, v.getSerie());
@@ -54,6 +57,7 @@ public class VentasDAO {
             ps.setString(6, v.getEstado());
             r=ps.executeUpdate();
         } catch (Exception e) {
+            System.out.println(e);
         }
         
         return r;
@@ -61,15 +65,18 @@ public class VentasDAO {
     public int GuardarDetalleVentas(DetalleVentas dv){
         String sql="insert into detalle_ventas(IdVentas,IdProducto,Cantidad,PrecioVenta)values(?,?,?,?)";
         try {
-            con=cn.Conectar();
-            ps=con.prepareStatement(sql);
+            //con=cn.Conectar();
+            PreparedStatement ps =con.getConnection().prepareStatement(sql);
             ps.setInt(1, dv.getIdVentas());
             ps.setInt(2, dv.getIdProducto());
             ps.setInt(3, dv.getCantidad());
             ps.setDouble(4, dv.getPreVenta());
             ps.executeUpdate();
         } catch (Exception e) {
+            System.out.println(e);
         }
         return r;
     }
 }
+
+

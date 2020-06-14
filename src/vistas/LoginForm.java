@@ -1,7 +1,11 @@
 package vistas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 import modelo.EntidadVendedor;
+import modelo.Vendedor;
 import modelo.VendedorDAO;
 
 public class LoginForm extends javax.swing.JFrame {
@@ -12,8 +16,10 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        txtUser.setText("emp01");
-        txtPass.setText("12345678");
+        txtUser.setText("");
+        txtPass.setText("");
+        vendedores();
+        Conexion con=new Conexion();
     }
 
     @SuppressWarnings("unchecked")
@@ -109,14 +115,20 @@ public class LoginForm extends javax.swing.JFrame {
         validar();
     }//GEN-LAST:event_btnIngresarActionPerformed
     public void validar() {
+        List<Vendedor> vend = new ArrayList<>();
         String dni = txtPass.getText();
         String user = txtUser.getText();
         if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe Ingresar Datos En las cajas Texto");
             txtUser.requestFocus();
         } else {
-            ev = vdao.ValidarVendedor(dni, user);
-            if (ev.getUser() != null && ev.getDni() != null) {
+            //ev = vdao.ValidarVendedor(dni, user);
+            vend=vendedores();
+            for(Vendedor V:vend){
+                System.out.println("dentro for");
+            //if (ev.getUser() != null && ev.getDni() != null) {
+            if(V.getUser().equals(user)&&V.getDni().equals(dni)){
+                System.out.println("Encontrado");
                 Principal p = new Principal();
                 p.setVisible(true);
                 dispose();
@@ -125,6 +137,7 @@ public class LoginForm extends javax.swing.JFrame {
                 txtUser.requestFocus();
 
             }
+        }
         }
     }
 
@@ -161,6 +174,13 @@ public class LoginForm extends javax.swing.JFrame {
                 new LoginForm().setVisible(true);
             }
         });
+    }
+    
+    public List vendedores(){
+        List<Vendedor> listaVendedor = new ArrayList<>();
+        listaVendedor=vdao.listarVendedor();
+        return listaVendedor;
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
