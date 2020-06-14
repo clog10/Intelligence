@@ -64,7 +64,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
 
         jLabel1.setText("DNI :");
 
-        jLabel2.setText("NOMBRES :");
+        jLabel2.setText("NOMBRE :");
 
         jLabel3.setText("DIRECCION :");
 

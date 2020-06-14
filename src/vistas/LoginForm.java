@@ -34,7 +34,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel1.setText("USUARIO :");
 
-        jLabel2.setText("PASSWPRD :");
+        jLabel2.setText("PASSWORD :");
 
         txtPass.setText("jPasswordField1");
 
