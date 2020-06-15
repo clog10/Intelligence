@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import modelo.Conexion;
@@ -205,13 +206,14 @@ public class LoginForm extends javax.swing.JFrame {
                 p.setVisible(true);
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Debe ingresar usuarios validos");
+               // JOptionPane.showMessageDialog(this, "Debe ingresar usuarios validos");
                 txtUser.requestFocus();
 
             }
         }
         }
     }
+    
 
     /**
      * @param args the command line arguments

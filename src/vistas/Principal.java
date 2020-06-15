@@ -2,7 +2,12 @@
 package vistas;
 
 import java.awt.Dimension;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -29,6 +34,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         javax.swing.GroupLayout VentanaPrincipalLayout = new javax.swing.GroupLayout(VentanaPrincipal);
         VentanaPrincipal.setLayout(VentanaPrincipalLayout);
@@ -147,13 +157,56 @@ public class Principal extends javax.swing.JFrame {
         CentrarVentana(vf);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    void  CentrarVentana(JInternalFrame frame){
-        VentanaPrincipal.add(frame);
-        Dimension dimension=VentanaPrincipal.getSize();
-        Dimension Dframe=frame.getSize();
-        frame.setLocation((dimension.width -Dframe.width)/2,(dimension.height-Dframe.height)/2);
-        frame.show();
-        
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        cerrar();
+    }//GEN-LAST:event_formWindowClosing
+
+        private void cerrar(){
+        if (JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro que desea salir?, su sesión será cerrada.",
+                "Cerrar Sesión", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                    this.dispose();
+                    Principal closeCurrentWindow = new Principal();
+                    closeCurrentWindow.setVisible(true);//Open the new window
+        }else{
+          //cambios
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        }
+    }
+    
+//    void  CentrarVentana(JInternalFrame frame){
+//        VentanaPrincipal.add(frame);
+//        Dimension dimension=VentanaPrincipal.getSize();
+//        Dimension Dframe=frame.getSize();
+//        frame.setLocation((dimension.width -Dframe.width)/2,(dimension.height-Dframe.height)/2);
+//        frame.show();
+//        
+//    }
+//    
+        //Metodo para centrar los JInternalFrame dentro  del desktop frame
+    public void CentrarVentana(JInternalFrame fr){
+        try {
+            reiniciarVista();
+            VentanaPrincipal.add(fr);
+            Dimension dim = VentanaPrincipal.getSize();
+            Dimension dimForm = fr.getSize();
+            fr.setLocation((dim.width-dimForm.width)/2, (dim.height-dimForm.height)/2);
+            fr.setMaximum(true);
+            
+            fr.setClosable(true);
+            //fr.setIconifiable(true);
+            //fr.setMaximizable(true);
+            //fr.setUI(null);
+            
+            fr.show();
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        public void reiniciarVista(){
+        VentanaPrincipal.removeAll();
+        VentanaPrincipal.updateUI();
     }
     
 
