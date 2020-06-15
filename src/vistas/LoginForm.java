@@ -98,6 +98,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
 
         txtPass.setText("jPasswordField1");
+        txtPass.setToolTipText("Ingresa tu contraseña");
         txtPass.setOpaque(false);
 
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/boton-ingresar-png-8.png"))); // NOI18N
@@ -137,11 +138,11 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -149,7 +150,7 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)

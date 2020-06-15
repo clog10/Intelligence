@@ -36,9 +36,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaVendedor = new javax.swing.JTable();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jPanel1 = new javax.swing.JPanel();
         txtDni = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
@@ -52,61 +50,22 @@ public class VendedorForm extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaVendedor = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Modulo Vendedor");
+        setTitle("Vendedor");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/vendedor.png"))); // NOI18N
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        tablaVendedor.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "DNI", "NOMBRES", "TELEFONO", "ESTADO"
-            }
-        ));
-        tablaVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaVendedorMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tablaVendedor);
-        if (tablaVendedor.getColumnModel().getColumnCount() > 0) {
-            tablaVendedor.getColumnModel().getColumn(0).setMinWidth(30);
-            tablaVendedor.getColumnModel().getColumn(0).setPreferredWidth(30);
-            tablaVendedor.getColumnModel().getColumn(0).setMaxWidth(30);
-            tablaVendedor.getColumnModel().getColumn(1).setMinWidth(70);
-            tablaVendedor.getColumnModel().getColumn(1).setPreferredWidth(70);
-            tablaVendedor.getColumnModel().getColumn(1).setMaxWidth(70);
-            tablaVendedor.getColumnModel().getColumn(3).setMinWidth(70);
-            tablaVendedor.getColumnModel().getColumn(3).setPreferredWidth(70);
-            tablaVendedor.getColumnModel().getColumn(3).setMaxWidth(70);
-            tablaVendedor.getColumnModel().getColumn(4).setMinWidth(50);
-            tablaVendedor.getColumnModel().getColumn(4).setPreferredWidth(50);
-            tablaVendedor.getColumnModel().getColumn(4).setMaxWidth(50);
-        }
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        kGradientPanel1.setkEndColor(new java.awt.Color(153, 255, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setOpaque(false);
 
         btnGuardar.setText("Agregar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,9 +76,11 @@ public class VendedorForm extends javax.swing.JInternalFrame {
 
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "0" }));
 
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("NOMBRE");
 
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("ESTADO");
 
@@ -144,9 +105,11 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("DNI");
 
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("CELULAR");
 
@@ -208,28 +171,86 @@ public class VendedorForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tablaVendedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "DNI", "NOMBRES", "TELEFONO", "ESTADO"
+            }
+        ));
+        tablaVendedor.setOpaque(false);
+        tablaVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVendedorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaVendedor);
+        if (tablaVendedor.getColumnModel().getColumnCount() > 0) {
+            tablaVendedor.getColumnModel().getColumn(0).setMinWidth(30);
+            tablaVendedor.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaVendedor.getColumnModel().getColumn(0).setMaxWidth(30);
+            tablaVendedor.getColumnModel().getColumn(1).setMinWidth(70);
+            tablaVendedor.getColumnModel().getColumn(1).setPreferredWidth(70);
+            tablaVendedor.getColumnModel().getColumn(1).setMaxWidth(70);
+            tablaVendedor.getColumnModel().getColumn(3).setMinWidth(70);
+            tablaVendedor.getColumnModel().getColumn(3).setPreferredWidth(70);
+            tablaVendedor.getColumnModel().getColumn(3).setMaxWidth(70);
+            tablaVendedor.getColumnModel().getColumn(4).setMinWidth(50);
+            tablaVendedor.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tablaVendedor.getColumnModel().getColumn(4).setMaxWidth(50);
+        }
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/home_banner3_icono1 (1).png"))); // NOI18N
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(0, 31, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jPanel2.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -338,13 +359,15 @@ public class VendedorForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox<String> comboEstado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tablaVendedor;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtNombres;
