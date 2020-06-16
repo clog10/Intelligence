@@ -4,8 +4,12 @@ import com.jtattoo.plaf.fast.FastLookAndFeel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -198,32 +202,46 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
     public void validar() {
         List<Vendedor> vend = new ArrayList<>();
+        vend=vendedores();
         String dni = txtPass.getText();
         String user = txtUser.getText();
-        if (txtUser.getText().equals("") || txtPass.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Proporsione un usuario y una contraseña!");
-            txtUser.requestFocus();
+        if (dni.isEmpty()|| user.isEmpty()) {
+            JOptionPane pane = new JOptionPane("Algún campo esta vacio, verifique...", JOptionPane.WARNING_MESSAGE);
+            JDialog dialog = pane.createDialog("¡Error!");
+            mostrarMensaje(dialog);
         } else {
-            //ev = vdao.ValidarVendedor(dni, user);
-            vend=vendedores();
             for(Vendedor V:vend){
-                System.out.println("dentro for");
-            //if (ev.getUser() != null && ev.getDni() != null) {
             if(V.getUser().equals(user)&&V.getDni().equals(dni)){
-                System.out.println("Encontrado");
+                JOptionPane pane = new JOptionPane("¡Bienvenido "+user+"!", JOptionPane.INFORMATION_MESSAGE);
+                JDialog dialog = pane.createDialog("ManagementITO");
+                mostrarMensaje(dialog);
                 Principal p = new Principal();
                 p.setVisible(true);
-                dispose();
+                this.dispose();
+                break;
             } else {
-               // JOptionPane.showMessageDialog(this, "Debe ingresar usuarios validos");
-                txtUser.requestFocus();
-                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos..,"+"\n"+" intentalo de nuevo!");
-
+                JOptionPane pane = new JOptionPane("Usuario o Contraseña incorrectos, verifique...", JOptionPane.WARNING_MESSAGE);
+                JDialog dialog = pane.createDialog("¡Error!");
+                mostrarMensaje(dialog);
             }
-        }
+            }
         }
     }
     
+     public void mostrarMensaje(JDialog dialog){
+          dialog.addWindowListener(null);
+                    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+                ScheduledExecutorService sch = Executors.newSingleThreadScheduledExecutor();     
+                sch.schedule(new Runnable() {
+                    public void run() {
+                        dialog.setVisible(false);
+                        dialog.dispose();
+                    }
+                }, 1, TimeUnit.SECONDS);
+
+                dialog.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
