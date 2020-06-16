@@ -2,6 +2,7 @@
 package vistas;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,19 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = getSize().width;
+        int h = getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        setLocation(0, 0);
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setSize(screenSize);
+        this.setResizable(false); // THEN  resizable = false
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -72,10 +85,20 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
         jMenuItem7.setText("Acerca De");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem7);
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ayuda.png"))); // NOI18N
         jMenuItem1.setText("Ayuda");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir.png"))); // NOI18N
@@ -196,7 +219,21 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        InventarioForm inv=new InventarioForm();
+        CentrarVentana(inv);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        AcercaForm f=new AcercaForm();
+        CentrarVentana(f);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        AyudaForm a=new AyudaForm();
+        CentrarVentana(a);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
         private void cerrar(){
         if (JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro que desea salir?, su sesión será cerrada.",
@@ -209,16 +246,7 @@ public class Principal extends javax.swing.JFrame {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         }
     }
-    
-//    void  CentrarVentana(JInternalFrame frame){
-//        VentanaPrincipal.add(frame);
-//        Dimension dimension=VentanaPrincipal.getSize();
-//        Dimension Dframe=frame.getSize();
-//        frame.setLocation((dimension.width -Dframe.width)/2,(dimension.height-Dframe.height)/2);
-//        frame.show();
-//        
-//    }
-//    
+
         //Metodo para centrar los JInternalFrame dentro  del desktop frame
     public void CentrarVentana(JInternalFrame fr){
         try {
@@ -230,10 +258,6 @@ public class Principal extends javax.swing.JFrame {
             fr.setMaximum(true);
             
             fr.setClosable(true);
-            //fr.setIconifiable(true);
-            //fr.setMaximizable(true);
-            //fr.setUI(null);
-            
             fr.show();
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);

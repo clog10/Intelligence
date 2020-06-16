@@ -392,6 +392,7 @@ public class VentasForm extends javax.swing.JInternalFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/money.png"))); // NOI18N
         jLabel14.setText("TOTAL A PAGAR :");
 
+        txtTotalPagar.setEditable(false);
         txtTotalPagar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
@@ -451,6 +452,9 @@ public class VentasForm extends javax.swing.JInternalFrame {
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 reciboKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                reciboKeyTyped(evt);
             }
         });
 
@@ -559,6 +563,12 @@ public class VentasForm extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         cambio();
     }//GEN-LAST:event_reciboKeyReleased
+
+    private void reciboKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reciboKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+    }//GEN-LAST:event_reciboKeyTyped
     void nuevo(){
         limpiarTabla();
         txtCodCliente.setText("");

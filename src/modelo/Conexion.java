@@ -18,7 +18,7 @@ public class Conexion {
          Class.forName("com.mysql.cj.jdbc.Driver");          
          conn = DriverManager.getConnection(url,login,pass); 
          if (conn!=null){ 
-            System.out.println("Conexión a base de datos "+bd+". listo"); 
+            System.out.println("Conexión a base de datos "+bd+" listo"); 
          } 
       }catch(SQLException e){ 
          System.out.println(e); 
@@ -43,6 +43,7 @@ public class Conexion {
         return pass;
     }
 }
+
 
 
 
