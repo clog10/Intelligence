@@ -1,7 +1,7 @@
-
 package modelo;
 
 public class DetalleVentas {
+
     int id;
     int idVentas;
     int idProducto;
@@ -58,6 +58,6 @@ public class DetalleVentas {
     public void setPreVenta(double preVenta) {
         this.preVenta = preVenta;
     }
-    
-    
+
 }
+

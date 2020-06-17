@@ -1,7 +1,5 @@
-
 package modelo;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,21 +8,19 @@ import java.util.List;
 public class VendedorDAO {
 
     Conexion con;
-    //Connection con;
-    
-    public VendedorDAO(){
-        con=new Conexion();
+
+    public VendedorDAO() {
+        con = new Conexion();
     }
-    
-    public EntidadVendedor ValidarVendedor(String Dni,String User){
-        EntidadVendedor ev=new EntidadVendedor();
-        String sql="select * from vendedor where Dni=? and User=?";
+
+    public EntidadVendedor ValidarVendedor(String Dni, String User) {
+        EntidadVendedor ev = new EntidadVendedor();
+        String sql = "select * from vendedor where Dni=? and User=?";
         try {
-           //con=acceso.Conectar();
-          PreparedStatement pstm =con.getConnection().prepareStatement(sql); 
-           pstm.setString(1, Dni);
-           pstm.setString(2, User);
-           ResultSet res =pstm.executeQuery();
+            PreparedStatement pstm = con.getConnection().prepareStatement(sql);
+            pstm.setString(1, Dni);
+            pstm.setString(2, User);
+            ResultSet res = pstm.executeQuery();
             while (res.next()) {
                 ev.setId(res.getInt(1));
                 ev.setDni(res.getString(2));
@@ -38,11 +34,11 @@ public class VendedorDAO {
         }
         return ev;
     }
-     public Vendedor listarVendedorId(String dni) {
-        Vendedor v=new Vendedor();
+
+    public Vendedor listarVendedorId(String dni) {
+        Vendedor v = new Vendedor();
         String sql = "select * from vendedor where Dni=" + dni;
         try {
-            //con = acceso.Conectar();
             PreparedStatement pstm = con.getConnection().prepareStatement(sql);
             ResultSet res = pstm.executeQuery();
             while (res.next()) {
@@ -58,13 +54,11 @@ public class VendedorDAO {
         }
         return v;
     }
-    //********CRUD - Principal**************
 
     public List listarVendedor() {
         String sql = "select * from vendedor";
         List<Vendedor> listaVendedor = new ArrayList<>();
         try {
-            //con = acceso.Conectar();
             PreparedStatement pstm = con.getConnection().prepareStatement(sql);
             ResultSet res = pstm.executeQuery();
             while (res.next()) {
@@ -84,10 +78,9 @@ public class VendedorDAO {
     }
 
     public int agregar(Vendedor v) {
-        int r=0;
+        int r = 0;
         String sql = "insert into vendedor(Dni,Nombres,Telefono,Estado,User)values(?,?,?,?,?)";
         try {
-            //con = acceso.Conectar();
             PreparedStatement pstm = con.getConnection().prepareStatement(sql);
             pstm.setString(1, v.getDni());
             pstm.setString(2, v.getNom());
@@ -102,10 +95,9 @@ public class VendedorDAO {
     }
 
     public int actualizar(Vendedor v) {
-        int r=0;
+        int r = 0;
         String sql = "update vendedor set Dni=?, Nombres=?,Telefono=?,Estado=? Where IdVendedor=?";
         try {
-            //con = acceso.Conectar();
             PreparedStatement pstm = con.getConnection().prepareStatement(sql);
             pstm.setString(1, v.getDni());
             pstm.setString(2, v.getNom());
@@ -119,16 +111,15 @@ public class VendedorDAO {
                 r = 0;
             }
         } catch (Exception e) {
-            System.err.println( e);
+            System.err.println(e);
         }
         return r;
     }
 
     public int delete(int id) {
-        int r=0;
+        int r = 0;
         String sql = "delete from vendedor where IdVendedor=?";
         try {
-            //con = acceso.Conectar();
             PreparedStatement pstm = con.getConnection().prepareStatement(sql);
             pstm.setInt(1, id);
             pstm.executeUpdate();
@@ -138,9 +129,4 @@ public class VendedorDAO {
         return r;
     }
 }
-
-
-
-
-
 

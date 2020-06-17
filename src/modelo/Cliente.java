@@ -1,7 +1,7 @@
-
 package modelo;
 
 public class Cliente {
+
     int id;
     String dni;
     String nom;
@@ -60,3 +60,5 @@ public class Cliente {
     }
     
 }
+
+

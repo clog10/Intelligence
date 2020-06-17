@@ -1,6 +1,7 @@
 package modelo;
 
 public class Producto {
+
     int id;
     String nom;
     double pre;
@@ -57,5 +58,6 @@ public class Producto {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
 }
+

@@ -1,7 +1,7 @@
-
 package modelo;
 
 public class Ventas {
+
     int id;
     int idCliente;
     int idVendedor;
@@ -78,5 +78,6 @@ public class Ventas {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
 }
+

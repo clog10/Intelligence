@@ -1,8 +1,8 @@
-
 package modelo;
 
 public class Vendedor {
-     int id;
+
+    int id;
     String dni;
     String nom;
     String tel;
@@ -69,5 +69,5 @@ public class Vendedor {
         this.user = user;
     }
 
-    
 }
+

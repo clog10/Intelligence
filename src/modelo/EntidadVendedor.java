@@ -1,7 +1,7 @@
-
 package modelo;
 
 public class EntidadVendedor {
+
     int id;
     String dni;
     String nom;
@@ -68,6 +68,6 @@ public class EntidadVendedor {
     public void setUser(String user) {
         this.user = user;
     }
-    
-    
+
 }
+
