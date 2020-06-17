@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Clog_10
@@ -16,6 +18,7 @@ public class AcercaForm extends javax.swing.JInternalFrame {
      */
     public AcercaForm() {
         initComponents();
+
     }
 
     /**
@@ -27,7 +30,10 @@ public class AcercaForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(153, 255, 204));
+        jLabel2 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+
+        setBackground(new java.awt.Color(0, 51, 0));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -35,15 +41,39 @@ public class AcercaForm extends javax.swing.JInternalFrame {
         setTitle("Acerca De");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/buscar.png"))); // NOI18N
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Acerca de.jpeg"))); // NOI18N
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
+        kGradientPanel1.setkGradientFocus(50);
+        kGradientPanel1.setkStartColor(new java.awt.Color(0, 30, 10));
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 721, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1022, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(486, 486, 486)
+                .addComponent(jLabel2)
+                .addGap(605, 605, 605)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -51,6 +81,7 @@ public class AcercaForm extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private keeptoo.KGradientPanel kGradientPanel1;
     // End of variables declaration//GEN-END:variables
 }
-

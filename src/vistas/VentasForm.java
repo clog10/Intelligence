@@ -122,6 +122,7 @@ public class VentasForm extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Punto de Venta");
         setToolTipText("");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ticket.png"))); // NOI18N
 
         kGradientPanel1.setkEndColor(new java.awt.Color(204, 255, 255));
         kGradientPanel1.setkGradientFocus(100);
