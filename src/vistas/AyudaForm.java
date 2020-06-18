@@ -33,13 +33,14 @@ public class AyudaForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAyuda = new javax.swing.JMenu();
         aProducto = new javax.swing.JMenuItem();
         aVenta = new javax.swing.JMenuItem();
-        aProveedor = new javax.swing.JMenuItem();
-        aLogin = new javax.swing.JMenuItem();
         aCliente = new javax.swing.JMenuItem();
+        aPrincipal = new javax.swing.JMenuItem();
+        aVendedor = new javax.swing.JMenuItem();
 
         setBackground(new java.awt.Color(153, 255, 204));
         setClosable(true);
@@ -48,15 +49,27 @@ public class AyudaForm extends javax.swing.JInternalFrame {
         setTitle("Ayuda");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ayuda.png"))); // NOI18N
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("¿En que podemos ayudarte?");
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1180, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(420, 420, 420)
+                .addComponent(jLabel1)
+                .addContainerGap(429, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel1)
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         menuAyuda.setText("Ayuda");
@@ -75,18 +88,12 @@ public class AyudaForm extends javax.swing.JInternalFrame {
         menuAyuda.add(aProducto);
 
         aVenta.setText("Venta");
-        menuAyuda.add(aVenta);
-
-        aProveedor.setText("Proveedor");
-        menuAyuda.add(aProveedor);
-
-        aLogin.setText("Login");
-        aLogin.addActionListener(new java.awt.event.ActionListener() {
+        aVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aLoginActionPerformed(evt);
+                aVentaActionPerformed(evt);
             }
         });
-        menuAyuda.add(aLogin);
+        menuAyuda.add(aVenta);
 
         aCliente.setText("Cliente");
         aCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,22 @@ public class AyudaForm extends javax.swing.JInternalFrame {
             }
         });
         menuAyuda.add(aCliente);
+
+        aPrincipal.setText("Principal");
+        aPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aPrincipalActionPerformed(evt);
+            }
+        });
+        menuAyuda.add(aPrincipal);
+
+        aVendedor.setText("Vendedor");
+        aVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aVendedorActionPerformed(evt);
+            }
+        });
+        menuAyuda.add(aVendedor);
 
         jMenuBar1.add(menuAyuda);
 
@@ -121,16 +144,11 @@ public class AyudaForm extends javax.swing.JInternalFrame {
         inv.show();
     }//GEN-LAST:event_aProductoActionPerformed
 
-    private void aLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aLoginActionPerformed
-        // TODO add your handling code here:
-        ayudaLogeo log = new ayudaLogeo();
-        jDesktopPane1.add(log);
-        log.show();
-    }//GEN-LAST:event_aLoginActionPerformed
-
     private void menuAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAyudaActionPerformed
         // TODO add your handling code here:
-        
+        ayudaVendedor vende = new ayudaVendedor();
+        jDesktopPane1.add(this);
+        vende.show();
     }//GEN-LAST:event_menuAyudaActionPerformed
 
     private void aClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aClienteActionPerformed
@@ -140,15 +158,37 @@ public class AyudaForm extends javax.swing.JInternalFrame {
         cl.show();
     }//GEN-LAST:event_aClienteActionPerformed
 
+    private void aVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aVentaActionPerformed
+        // TODO add your handling code here:
+        ayudaVentas venta = new ayudaVentas();
+        jDesktopPane1.add(venta);
+        venta.show();
+    }//GEN-LAST:event_aVentaActionPerformed
+
+    private void aPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aPrincipalActionPerformed
+        // TODO add your handling code here:
+        ayudaPrincipal prin = new ayudaPrincipal();
+        jDesktopPane1.add(prin);
+        prin.show();
+    }//GEN-LAST:event_aPrincipalActionPerformed
+
+    private void aVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aVendedorActionPerformed
+        // TODO add your handling code here:
+        ayudaVendedor vendedor = new ayudaVendedor();
+        jDesktopPane1.add(vendedor);
+        vendedor.show();
+    }//GEN-LAST:event_aVendedorActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aCliente;
-    private javax.swing.JMenuItem aLogin;
+    private javax.swing.JMenuItem aPrincipal;
     private javax.swing.JMenuItem aProducto;
-    private javax.swing.JMenuItem aProveedor;
+    private javax.swing.JMenuItem aVendedor;
     private javax.swing.JMenuItem aVenta;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuAyuda;
     // End of variables declaration//GEN-END:variables
