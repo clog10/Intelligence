@@ -5,8 +5,6 @@
  */
 package vistas;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Clog_10

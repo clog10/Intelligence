@@ -52,14 +52,14 @@ public class VentasForm extends javax.swing.JInternalFrame {
         }
     }
     void fecha() {
-        int dia,mes,año=0;
+        int dia,mes,anio=0;
         Calendar calendar = new GregorianCalendar();
         dia=calendar.get(Calendar.DAY_OF_MONTH);
         mes=calendar.get(Calendar.MONTH);
         mes+=1;
         //System.out.println(""+mes);
-        año=calendar.get(Calendar.YEAR);
-        txtFecha.setText(dia+"/"+mes+"/"+año);
+        anio=calendar.get(Calendar.YEAR);
+        txtFecha.setText(dia+"/"+mes+"/"+anio);
     }
 
     void generarSerie() {

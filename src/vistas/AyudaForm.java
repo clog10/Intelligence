@@ -7,6 +7,9 @@ package vistas;
 
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
 /**
@@ -16,6 +19,7 @@ import javax.swing.JPanel;
 public class AyudaForm extends javax.swing.JInternalFrame {
 
     JPanel loginA;
+
     /**
      * Creates new form AyudaForm
      */
@@ -140,45 +144,71 @@ public class AyudaForm extends javax.swing.JInternalFrame {
     private void aProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aProductoActionPerformed
         // TODO add your handling code here:
         ayudaInventario inv = new ayudaInventario();
-        jDesktopPane1.add(inv);
-        inv.show();
+        CentrarVentana(inv);
+//        jDesktopPane1.add(inv);
+//        inv.show();
     }//GEN-LAST:event_aProductoActionPerformed
 
     private void menuAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAyudaActionPerformed
         // TODO add your handling code here:
         ayudaVendedor vende = new ayudaVendedor();
-        jDesktopPane1.add(this);
-        vende.show();
+        CentrarVentana(vende);
+//        jDesktopPane1.add(this);
+//        vende.show();
     }//GEN-LAST:event_menuAyudaActionPerformed
 
     private void aClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aClienteActionPerformed
         // TODO add your handling code here:
         ayudaCliente cl = new ayudaCliente();
-        jDesktopPane1.add(cl);
-        cl.show();
+        CentrarVentana(cl);
+//        jDesktopPane1.add(cl);
+//        cl.show();
     }//GEN-LAST:event_aClienteActionPerformed
 
     private void aVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aVentaActionPerformed
         // TODO add your handling code here:
         ayudaVentas venta = new ayudaVentas();
-        jDesktopPane1.add(venta);
-        venta.show();
+        CentrarVentana(venta);
+//        jDesktopPane1.add(venta);
+//        venta.show();
     }//GEN-LAST:event_aVentaActionPerformed
 
     private void aPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aPrincipalActionPerformed
         // TODO add your handling code here:
         ayudaPrincipal prin = new ayudaPrincipal();
-        jDesktopPane1.add(prin);
-        prin.show();
+        CentrarVentana(prin);
+//        jDesktopPane1.add(prin);
+//        prin.show();
     }//GEN-LAST:event_aPrincipalActionPerformed
 
     private void aVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aVendedorActionPerformed
         // TODO add your handling code here:
         ayudaVendedor vendedor = new ayudaVendedor();
-        jDesktopPane1.add(vendedor);
-        vendedor.show();
+        CentrarVentana(vendedor);
+//        jDesktopPane1.add(vendedor);
+//        vendedor.show();
     }//GEN-LAST:event_aVendedorActionPerformed
 
+        public void CentrarVentana(JInternalFrame fr){
+        try {
+            reiniciarVista();
+            jDesktopPane1.add(fr);
+            Dimension dim = jDesktopPane1.getSize();
+            Dimension dimForm = fr.getSize();
+            fr.setLocation((dim.width-dimForm.width)/2, (dim.height-dimForm.height)/2);
+            fr.setMaximum(true);
+            
+            fr.setClosable(true);
+            fr.show();
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void reiniciarVista() {
+        jDesktopPane1.removeAll();
+        jDesktopPane1.updateUI();
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -193,4 +223,3 @@ public class AyudaForm extends javax.swing.JInternalFrame {
     private javax.swing.JMenu menuAyuda;
     // End of variables declaration//GEN-END:variables
 }
-
